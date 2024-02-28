@@ -1,0 +1,36 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://divisionroadinc.com/cdn/shop/files/Division_Road_EOS_SALE__002_copy.jpg?v=1706284803);">
+  <div class="container">
+    <h1>Wardrobe brings <strong>smart dressing</strong> to <strong>stylish people</strong>!</h1>
+    <p>Dares the changes!</p>
+    <a class="btn btn-flat" href="#">Outfits</a>
+  </div>
+</div>
+
+
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-dark">
+    <h3 class="typed-js" data-controller="typed-js"></h3>
+  </div>
+</div>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+  </div>
+
+   <%= link_to "Create list", new_outfit_path, class: "btn btn-flat" %>
+ <div class="row">
+  <% @outfits.each do |outfit| %>
+    <div class="co-12 col-sm-6 col-md-4 mb-3">
+       <%= link_to outfit_path(outfit), class:"text-decoration-none" do %>
+  <div class="card-product">
+  <%= image_tag "eco_fashion.png" %>
+  <div class="card-product-infos">
+            <h1><%= outfit.title %></h1>
+     <!--   <%= render partial: 'outfits/popup', locales: { outfit: @outfit } %> -->
+  </div>
+    </div>
+        <% end %>
+  </div>
+  <% end %>
+</div>
+
+</div>

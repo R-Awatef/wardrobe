@@ -1,0 +1,61 @@
+<div class="position-relative">
+
+ <div class="card-product">
+
+  <%= image_tag "eco_fashion.png" %>
+  <div class="card-product-infos">
+    <h1><%= @outfit.title %></h1>
+    <p><%= @outfit.description %></p>
+  <span class="outfit-tag">Size : <%=@outfit.size%> </span>
+  </div>
+    </div>
+  </div>
+
+</div>
+<div class="container mb-5">
+  <div class="d-flex justify-content-between my-4">
+    <span class="mb-2 d-block"><small><em class="text-muted"></em></small></span>
+
+  </div>
+
+
+<div class="container">
+  <div class="outfit-card-actions p-4">
+           <%= link_to "Add an outfit", new_outfit_path,
+                class: "btn btn-flat btn-dark"  %>
+
+            <%= link_to "Remove", outfit_path(@outfit),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "btn btn-cancel btn-warning"
+            %>
+          </div>
+<div class="row">
+    <div class="col-12 col-sm-6">
+
+  <%= render "users/modal", outfit: @outfit %>
+    </div>
+
+    <div class="col-12 col-sm-6">
+      <div class="bg-white rounded p-3">
+        <h5>Rent your Outfit</h5>
+    <%= simple_form_for(rental_path) do |f| %>
+        <%= f.input :start_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+        <%= f.input :end_date,
+            as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+        <%= f.input :status, placeholder: "Add your !!here..." %>
+         <%= f.submit class: "btn btn-dark mt-2" %>
+    <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+       <div class="flex p-3">
+            <i class="fa-brands fa-facebook-square me-2"></i>
+            <i class="fa-brands fa-twitter-square me-2"></i>
+            <i class="fa-brands fa-pinterest-square me-2"></i>
+          </div>
+     </div>
