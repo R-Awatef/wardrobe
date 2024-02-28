@@ -1,5 +1,5 @@
 class OutfitsController < ApplicationController
-  before_action :set_outfit, only: [:show, :destroy]
+  before_action :set_outfit, only: [:show, :update, :destroy]
 
 
   def index
@@ -17,7 +17,7 @@ class OutfitsController < ApplicationController
 
   def show
     # @outfit = Outfit.find(params[:id])
-    # @rental = Rental.new(outfit: @outfit)
+    @rental = Rental.new(outfit: @outfit)
   end
 
   def create

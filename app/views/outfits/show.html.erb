@@ -32,13 +32,13 @@
 <div class="row">
     <div class="col-12 col-sm-6">
 
-  <%= render "users/modal", outfit: @outfit %>
+  <%= render "outfits/modal", outfit: @outfit %>
     </div>
 
     <div class="col-12 col-sm-6">
       <div class="bg-white rounded p-3">
         <h5>Rent your Outfit</h5>
-    <%= simple_form_for(rental_path) do |f| %>
+    <%= simple_form_for([@outfit, @rental])do |f| %>
         <%= f.input :start_date,
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>

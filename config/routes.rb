@@ -9,10 +9,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
 
-  resources :outfits, except: [:edit, :update] do
+  resources :outfits do
     resources :users, only: [:new, :create]
     resources :rentals, only: :create
   end
   resources :users, only: :destroy
-  resources :rentals
+  resources :rentals, only: [:index]
 end

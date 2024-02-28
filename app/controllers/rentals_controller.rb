@@ -12,10 +12,10 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @outfit = Outfit.find(params[:outfit_id])
     @rental.outfit = @outfit
+    @rental.user = current_user
     if @rental.save
       redirect_to outfit_path(@outfit)
     else
-    @user = User.new
       render "outfits/show", status: :unprocessable_entity
     end
   end

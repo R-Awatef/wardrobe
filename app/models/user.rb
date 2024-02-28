@@ -4,6 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # has_many :outfits, through: :rentals, class_name: "Outfit"
-  has_many :rentals, through: :outfits, dependent: :destroy
-
+  has_many :rentals, dependent: :destroy
 end
